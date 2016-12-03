@@ -28,6 +28,21 @@ var albumMarconi = {
     ]
 };
 
+var albumCalifornia = {
+    title: 'The Golden State',
+    artist: 'The Bears',
+    label: 'Yukon Productions',
+    year: '1849',
+    albumArtUrl: 'assets/images/album_covers/19.png',
+    songs: [
+        { title: 'Santa Clara', duration: '3:29' },
+        { title: 'San Jose', duration: '4:24' },
+        { title: 'Monterey', duration: '2:55' },
+        { title: 'Orange County', duration: '3:28' },
+        { title: 'Napa', duration: '3:39' };
+    ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template = 
         '<tr class="album-view-song-item">'
@@ -40,13 +55,13 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
 };
 
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
 var setCurrentAlbum = function(album) {
-    var albumTitle = document.getElementsByClassName('album-view-title')[0];
-    var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-    var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-    var albumImage = document.getElementsByClassName('album-cover-art')[0];
-    var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
-    
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
@@ -61,4 +76,14 @@ var setCurrentAlbum = function(album) {
 
 window.onload = function {
     setCurrentAlbum(albumPicasso);
+    
+    var albums = [albumPicasso, albumMarconi, albumCalifornia];
+    var index = 1
+    albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index++;
+        if (index == albums.length) {
+            index == 0;
+        }
+    });
 };
