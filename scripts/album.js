@@ -39,7 +39,7 @@ var albumCalifornia = {
         { title: 'San Jose', duration: '4:24' },
         { title: 'Monterey', duration: '2:55' },
         { title: 'Orange County', duration: '3:28' },
-        { title: 'Napa', duration: '3:39' };
+        { title: 'Napa', duration: '3:39' }
     ]
 };
 
@@ -63,6 +63,7 @@ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
 var setCurrentAlbum = function(album) {
     albumTitle.firstChild.nodeValue = album.title;
+//    albumTitle.textContent = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
@@ -74,16 +75,17 @@ var setCurrentAlbum = function(album) {
     }
 };
 
-window.onload = function {
+window.onload = function() {
     setCurrentAlbum(albumPicasso);
     
     var albums = [albumPicasso, albumMarconi, albumCalifornia];
-    var index = 1
+    var index = 1;
     albumImage.addEventListener("click", function(event) {
         setCurrentAlbum(albums[index]);
         index++;
+        // if we're on the last album, reset index to 0
         if (index == albums.length) {
-            index == 0;
+            index = 0; // false
         }
     });
 };
