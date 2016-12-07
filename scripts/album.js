@@ -70,7 +70,7 @@ var findParentByClassName = function(element, targetClass) {
 };
 
 var getSongItem = function(element) {
-    switch (element.clasName) {
+    switch (element.className) {
         case 'album-song-button':
         case 'ion-play':
         case 'ion-pause':
@@ -116,7 +116,7 @@ window.onload = function() {
     
     songListContainer.addEventListener("mouseover", function(event) {
         if (event.target.parentElement.className === 'album-view-song-item') {
-            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+//            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
             var songItem = getSongItem(event.target);
             
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
@@ -128,6 +128,7 @@ window.onload = function() {
     for (var i=0; i<songRows.length; i++) {
         songRows[i].addEventListener('mouseleave', function(event) {
             var songItem = getSongItem(event.target);
+            console.log(songItem);
             var songItemNumber = songItem.getAttribute('data-song-number');
             
             if (songItemNumber !== currentlyPlayingSong) {
