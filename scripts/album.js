@@ -200,8 +200,19 @@ var currentVolume = 80;
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 
+//-----------Assignment 33: BEGIN-------------//
+
+var playPause = $('.main-controls .play-pause');
+
+var togglePlayFromPlayerBar = function() {
+    
+}
+
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
+    $playPause.click(togglePlayFromPlayerBar());
 });
+
+//-----------Assignment 33: END---------------//
