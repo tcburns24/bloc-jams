@@ -205,12 +205,6 @@ var $nextButton = $('.main-controls .next');
 
 //-----------Assignment 33: BEGIN-------------//
 
-var playPause = $('.main-controls .play-pause');
-
-var togglePlayFromPlayerBar = function() {
-    
-}
-
 var $playPause = $('.main-controls .play-pause');
 var togglePlayFromPlayerBar = function() {
     // if there is a currently playing song X
@@ -235,12 +229,8 @@ $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
-
-    $playPause.click(togglePlayFromPlayerBar());
+    $playPause.click(togglePlayFromPlayerBar);
 });
 
 //-----------Assignment 33: END---------------//
-
-    $playPause.click(togglePlayFromPlayerBar);
-});
 
