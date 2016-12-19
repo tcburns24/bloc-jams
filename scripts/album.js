@@ -271,7 +271,11 @@ var setTotalTimeInPlayerBar = function(totalTime) {
 var filterTimeCode = function(timeInSeconds) {
     var minutes = Math.floor(timeInSeconds / 60);
     var seconds = Math.floor(timeInSeconds % 60);
-    return minutes + ':' + seconds;
+    var str = minutes + ":";
+    if (seconds < 10) {
+        str += '0';
+    }
+    return str + seconds;
 };
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
